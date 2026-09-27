@@ -63,21 +63,22 @@ export default function Page() {
     .site .nav { height:88px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
     .site .mark { display:flex; align-items:center; gap:11px; font-weight:750; letter-spacing:.05em; font-size:14px; }
     .site .mark-dot { width:30px; height:30px; display:grid; place-items:center; border:1px solid var(--blue); border-radius:9px; color:var(--blue); font-size:12px; }
-    .site .nav-links { display:flex; gap:26px; color:var(--muted); font-size:14px; }
+    .site .nav-links { display:flex; align-items:center; gap:26px; color:var(--muted); font-size:14px; }
     .site .nav-links a:hover { color:var(--text); }
     .site .hero { min-height:560px; display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:center; padding:72px 0 82px; }
     .site .eyebrow { color:var(--blue); text-transform:uppercase; letter-spacing:.18em; font-size:12px; font-weight:700; margin:0 0 22px; }
-    .site h1 { font-size:clamp(3.4rem, 8vw, 7.1rem); line-height:.92; letter-spacing:-.075em; margin:0; max-width:720px; }
+    .site h1 { font-size:clamp(3.4rem, 8vw, 7.1rem); font-weight:700; line-height:.92; letter-spacing:-.075em; margin:0; max-width:720px; }
     .site .hero-copy { max-width:560px; color:var(--muted); font-size:19px; margin:28px 0 34px; }
     .site .hero-actions { display:flex; align-items:center; gap:22px; }
     .site .button { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; background:var(--blue); color:#07101e; font-weight:750; font-size:14px; }
+    .site .nav-cv { padding:10px 17px; white-space:nowrap; }
     .site .text-link { color:var(--text); font-size:14px; border-bottom:1px solid var(--line); padding-bottom:4px; }
     .site .hero-art { position:relative; aspect-ratio:16/10; border:1px solid var(--line); background:radial-gradient(circle at 52% 50%, #1b263a 0, #0c1018 47%, #080a0f 72%); overflow:hidden; }
     .site .hero-art img { width:100%; height:100%; object-fit:contain; display:block; }
     .site .hero-label { position:absolute; left:18px; bottom:18px; font-size:11px; color:#bfc8d7; letter-spacing:.12em; text-transform:uppercase; }
     .site .section { padding:95px 0; border-top:1px solid var(--line); }
     .site .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:32px; }
-    .site h2 { font-size:clamp(2rem, 4vw, 3.4rem); line-height:1; letter-spacing:-.05em; margin:0; }
+    .site h2 { font-size:clamp(2rem, 4vw, 3.4rem); font-weight:700; line-height:1; letter-spacing:-.05em; margin:0; }
     .site .section-note { max-width:360px; color:var(--muted); margin:0; }
     .site .work-grid { display:grid; gap:26px; }
     .site .project { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(270px,.8fr); background:var(--panel); border:1px solid var(--line); transition:transform .7s cubic-bezier(.2,.75,.25,1), border-color .25s ease, opacity .7s ease; opacity:0; transform:translateY(80px) scale(.96); overflow:hidden; }
@@ -91,7 +92,7 @@ export default function Page() {
     .site .project-image { aspect-ratio:16/9; overflow:hidden; background:#0d1118; }
     .site .project-image video { width:100%; height:100%; display:block; object-fit:cover; }
     .site .project-body { padding:clamp(24px,3.2vw,44px); display:flex; flex-direction:column; justify-content:center; gap:14px; }
-    .site .project h3 { margin:0; font-size:clamp(1.6rem,3vw,2.5rem); line-height:1.05; letter-spacing:-.045em; }
+    .site .project h3 { margin:0; font-size:clamp(1.6rem,3vw,2.5rem); font-weight:700; line-height:1.05; letter-spacing:-.045em; }
     .site .project p { margin:0; color:var(--muted); font-size:16px; line-height:1.55; }
     .site .tag { color:var(--orange); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
     .site .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; }
@@ -105,7 +106,7 @@ export default function Page() {
     .site .skill small { display:block; color:var(--muted); font-size:12px; margin-top:5px; }
     .site footer { padding:28px 0 42px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:20px; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .site *, .site *::before, .site *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } .site .project, .site .about-grid > * { opacity:1; transform:none; } }
-    @media (max-width: 760px) { .site .wrap { width:min(var(--max), calc(100% - 32px)); } .site .nav { height:72px; } .site .nav-links { gap:14px; font-size:13px; } .site .hero { grid-template-columns:1fr; padding:65px 0 70px; gap:42px; } .site .hero-art { max-width:460px; } .site .section { padding:70px 0; } .site .section-head { align-items:flex-start; flex-direction:column; } .site .about-grid { grid-template-columns:1fr; } .site .project, .site .project:nth-child(2), .site .project.project--portrait { grid-template-columns:1fr; } .site .project:nth-child(2) .project-image { order:0; } .site .project--portrait .project-image { width:100%; max-width:360px; justify-self:center; } .site footer { flex-direction:column; } }
+    @media (max-width: 760px) { .site .wrap { width:min(var(--max), calc(100% - 32px)); } .site .nav { height:72px; } .site .nav-links { gap:14px; font-size:13px; } .site .nav-cv { padding:9px 13px; font-size:12px; } .site .hero { grid-template-columns:1fr; padding:65px 0 70px; gap:42px; } .site .hero-art { max-width:460px; } .site .section { padding:70px 0; } .site .section-head { align-items:flex-start; flex-direction:column; } .site .about-grid { grid-template-columns:1fr; } .site .project, .site .project:nth-child(2), .site .project.project--portrait { grid-template-columns:1fr; } .site .project:nth-child(2) .project-image { order:0; } .site .project--portrait .project-image { width:100%; max-width:360px; justify-self:center; } .site footer { flex-direction:column; } }
       `}</style>
 
       <div className="site">
@@ -118,6 +119,9 @@ export default function Page() {
           <nav className="nav-links" aria-label="Main navigation">
             <a href="#work">Work</a>
             <a href="#about">About</a>
+            <a className="button nav-cv" href="/assets/Madhosh_Sabawi_CV.pdf" target="_blank" rel="noopener">
+              My CV <span aria-hidden="true">↗</span>
+            </a>
           </nav>
         </header>
         <main id="top">
@@ -249,29 +253,27 @@ export default function Page() {
           <section className="section" id="about">
             <div className="wrap about-grid">
               <div>
-                <p className="eyebrow">02 / About</p>
-                <p className="about-lede">
-                  I use Blender, After Effects, and Premiere Pro to bring depth, movement, and polish to visual
-                  projects.
-                </p>
+                <p className="eyebrow">02 / About me</p>
+                <p className="about-lede">I bring together creative software and technical skills to make clear, engaging visuals.</p>
               </div>
               <div>
                 <p className="about-copy">
-                  Across these pieces, I applied 3D modeling, materials, lighting, compositing, motion graphics, and
-                  video editing to shape brand visuals and short-form video.
+                  I use Blender, After Effects, and Premiere Pro for 3D visuals, motion graphics, and video editing. I
+                  also work with Python, C#, and Unity, and bring creative problem-solving and project coordination to
+                  each brief.
                 </p>
                 <div className="skills">
                   <div className="skill">
-                    3D modeling<small>Blender / hard-surface / materials</small>
+                    3D &amp; motion<small>Blender / After Effects</small>
                   </div>
                   <div className="skill">
-                    Motion design<small>After Effects / compositing</small>
+                    Video editing<small>Premiere Pro / pacing</small>
                   </div>
                   <div className="skill">
-                    Video editing<small>Premiere Pro / pacing / sound</small>
+                    Development<small>Python / C# / Unity</small>
                   </div>
                   <div className="skill">
-                    Visual development<small>Concepts / look development</small>
+                    Working strengths<small>Problem-solving / coordination</small>
                   </div>
                 </div>
               </div>
@@ -286,3 +288,4 @@ export default function Page() {
     </>
   )
 }
+
