@@ -4,7 +4,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Selected Work — 3D & Motion',
-  description: 'Selected 3D modeling and motion design work: Moonline and Babylon Holiday.',
+  description: 'Selected 3D, motion, video, and Unity game work: Moonline, Babylon Holiday, a travel ad, and Can Smash.',
   generator: 'v0.app',
   icons: {
     icon: [
