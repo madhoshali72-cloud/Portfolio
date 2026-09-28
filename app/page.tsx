@@ -86,8 +86,10 @@ export default function Page() {
     .site .project:nth-child(2) { grid-template-columns:minmax(270px,.8fr) minmax(0,1.65fr); }
     .site .project:nth-child(2) .project-image { order:2; }
     .site .project.project--portrait { grid-template-columns:minmax(280px,360px) minmax(0,1fr); }
+    .site .project.project--portrait.project--reverse { grid-template-columns:minmax(0,1fr) minmax(280px,360px); }
     .site .project--portrait .project-image { aspect-ratio:9/16; }
     .site .project--portrait .project-image video { object-fit:contain; }
+    .site .project--reverse .project-image { order:2; }
     .site .project:hover { transform:translateY(-6px); border-color:#53647c; }
     .site .project-image { aspect-ratio:16/9; overflow:hidden; background:#0d1118; }
     .site .project-image video { width:100%; height:100%; display:block; object-fit:cover; }
@@ -106,7 +108,7 @@ export default function Page() {
     .site .skill small { display:block; color:var(--muted); font-size:12px; margin-top:5px; }
     .site footer { padding:28px 0 42px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:20px; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .site *, .site *::before, .site *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } .site .project, .site .about-grid > * { opacity:1; transform:none; } }
-    @media (max-width: 760px) { .site .wrap { width:min(var(--max), calc(100% - 32px)); } .site .nav { height:72px; } .site .nav-links { gap:14px; font-size:13px; } .site .nav-cv { padding:9px 13px; font-size:12px; } .site .hero { grid-template-columns:1fr; padding:65px 0 70px; gap:42px; } .site .hero-art { max-width:460px; } .site .section { padding:70px 0; } .site .section-head { align-items:flex-start; flex-direction:column; } .site .about-grid { grid-template-columns:1fr; } .site .project, .site .project:nth-child(2), .site .project.project--portrait { grid-template-columns:1fr; } .site .project:nth-child(2) .project-image { order:0; } .site .project--portrait .project-image { width:100%; max-width:360px; justify-self:center; } .site footer { flex-direction:column; } }
+    @media (max-width: 760px) { .site .wrap { width:min(var(--max), calc(100% - 32px)); } .site .nav { height:72px; } .site .nav-links { gap:14px; font-size:13px; } .site .nav-cv { padding:9px 13px; font-size:12px; } .site .hero { grid-template-columns:1fr; padding:65px 0 70px; gap:42px; } .site .hero-art { max-width:460px; } .site .section { padding:70px 0; } .site .section-head { align-items:flex-start; flex-direction:column; } .site .about-grid { grid-template-columns:1fr; } .site .project, .site .project:nth-child(2), .site .project.project--portrait, .site .project.project--portrait.project--reverse { grid-template-columns:1fr; } .site .project:nth-child(2) .project-image, .site .project--reverse .project-image { order:0; } .site .project--portrait .project-image { width:100%; max-width:360px; justify-self:center; } .site footer { flex-direction:column; } }
       `}</style>
 
       <div className="site">
@@ -134,8 +136,8 @@ export default function Page() {
                 <span style={{ color: "var(--blue)" }}>visible.</span>
               </h1>
               <p className="hero-copy">
-                A selection of finished 3D and motion work, from a reflective brand world and an animated aircraft
-                reveal to a travel campaign made for mobile.
+                A selection of 3D, motion, and interactive work, from a reflective brand world and animated aircraft
+                reveal to mobile video and a Unity game prototype.
               </p>
               <div className="hero-actions">
                 <a className="button" href="#work">
@@ -166,8 +168,8 @@ export default function Page() {
                   </h2>
                 </div>
                 <p className="section-note">
-                  Three finished pieces across 3D identity, motion design, and social video. Each film plays as you
-                  scroll to it.
+                  Four projects across 3D identity, motion design, social video, and interactive games. Each film plays
+                  as you scroll to it.
                 </p>
               </div>
               <div className="work-grid">
@@ -247,6 +249,31 @@ export default function Page() {
                     </p>
                   </div>
                 </article>
+                <article className="project project--portrait project--reverse">
+                  <div className="project-image">
+                    <video
+                      controls
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster="/assets/unity-can-smash-poster.jpg"
+                      aria-label="Can Smash Unity game showcase"
+                    >
+                      <source src="/assets/unity-can-smash.mp4" type="video/mp4" />
+                      Your browser does not support video.{" "}
+                      <a href="/assets/unity-can-smash.mp4">Download the Unity showcase</a>.
+                    </video>
+                  </div>
+                  <div className="project-body">
+                    <span className="tag">Unity game / 04</span>
+                    <h3>Can Smash</h3>
+                    <p>
+                      A mobile can-knockdown game prototype shown in Unity’s iPhone simulator. The clip moves from the
+                      menu into aiming and target challenges, with shots and score tracked on screen.
+                    </p>
+                  </div>
+                </article>
               </div>
             </div>
           </section>
@@ -259,8 +286,8 @@ export default function Page() {
               <div>
                 <p className="about-copy">
                   I use Blender, After Effects, and Premiere Pro for 3D visuals, motion graphics, and video editing. I
-                  also work with Python, C#, and Unity, and bring creative problem-solving and project coordination to
-                  each brief.
+                  also use Unity and C# to develop interactive mobile game prototypes, supported by Python, creative
+                  problem-solving, and project coordination.
                 </p>
                 <div className="skills">
                   <div className="skill">
@@ -270,7 +297,7 @@ export default function Page() {
                     Video editing<small>Premiere Pro / pacing</small>
                   </div>
                   <div className="skill">
-                    Development<small>Python / C# / Unity</small>
+                    Game development<small>Unity / C# / mobile prototyping</small>
                   </div>
                   <div className="skill">
                     Working strengths<small>Problem-solving / coordination</small>
@@ -288,4 +315,3 @@ export default function Page() {
     </>
   )
 }
-
