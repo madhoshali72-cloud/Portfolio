@@ -95,7 +95,10 @@ export default function Page() {
     .site .project:hover { transform:translateY(-6px); border-color:#53647c; }
     .site .project-image { aspect-ratio:16/9; overflow:hidden; background:#0d1118; }
     .site .project-image video { width:100%; height:100%; display:block; object-fit:cover; }
-    .site .project-image--building { position:relative; }
+    .site .project-media-building { aspect-ratio:auto; }
+    .site .project-image--building { position:relative; aspect-ratio:16/9; overflow:hidden; }
+    .site .project-poster { margin:0; }
+    .site .project-poster img { width:100%; height:auto; display:block; }
     .site .project-placeholder { position:absolute; inset:0; overflow:hidden; background:#0d1118; }
     .site .project-placeholder img { width:100%; height:100%; display:block; object-fit:cover; }
     .site .project-media-stack { aspect-ratio:auto; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); }
@@ -181,6 +184,57 @@ export default function Page() {
                 </p>
               </div>
               <div className="work-grid">
+                <article className="project" id="moonline-building">
+                  <div className="project-image project-media-building">
+                    <div className="project-image--building">
+                      {/* Add public/assets/moonline-building-film.mp4 when ready; successful loading replaces the placeholder. */}
+                      <video
+                        controls={buildingFilmReady}
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        poster="/assets/moonline-building-poster.webp"
+                        aria-label="Moonline architectural film"
+                        aria-hidden={!buildingFilmReady}
+                        onLoadedMetadata={() => setBuildingFilmReady(true)}
+                        onError={() => setBuildingFilmReady(false)}
+                      >
+                        <source src="/assets/moonline-building-film.mp4" type="video/mp4" />
+                        Your browser does not support video.{" "}
+                        <a href="/assets/moonline-building-film.mp4">Download the architectural film</a>.
+                      </video>
+                      {!buildingFilmReady && (
+                        <div className="project-placeholder">
+                          <img
+                            src="/assets/moonline-building-poster.webp"
+                            alt="Moonline building at night with illuminated signage and a landscaped streetscape"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    <div className="media-caption">Cinematic film</div>
+                    <figure className="project-poster">
+                      <img
+                        src="/assets/moonline-building-poster.png"
+                        alt="Front view of the Moonline building with illuminated Moonline, Air Arabia, and EgyptAir signage"
+                        width={2560}
+                        height={1440}
+                        loading="lazy"
+                      />
+                      <figcaption className="media-caption">Architectural poster</figcaption>
+                    </figure>
+                  </div>
+                  <div className="project-body">
+                    <span className="tag">Architectural visualization / 01</span>
+                    <h3>Moonline Architectural Film</h3>
+                    <p>
+                      The Moonline building brought into a detailed urban setting in Blender. Daylight and nighttime
+                      lighting studies, landscaping, and an eight-second cinematic camera move explore the facade and
+                      its surrounding streetscape.
+                    </p>
+                  </div>
+                </article>
                 <article className="project">
                   <div className="project-image">
                     <video
@@ -198,7 +252,7 @@ export default function Page() {
                     </video>
                   </div>
                   <div className="project-body">
-                    <span className="tag">3D identity / 01</span>
+                    <span className="tag">3D identity / 02</span>
                     <h3>Moonline</h3>
                     <p>
                       An extruded Moonline Business logo suspended in a reflective corridor. Metallic surfaces,
@@ -223,7 +277,7 @@ export default function Page() {
                     </video>
                   </div>
                   <div className="project-body">
-                    <span className="tag">Motion design / 02</span>
+                    <span className="tag">Motion design / 03</span>
                     <h3>Babylon Holiday</h3>
                     <p>
                       A ten-second brand reveal over a moving sky. An aircraft enters as the Holiday script writes
@@ -248,7 +302,7 @@ export default function Page() {
                     </video>
                   </div>
                   <div className="project-body">
-                    <span className="tag">Social video / 03</span>
+                    <span className="tag">Social video / 04</span>
                     <h3>4 Nights, 5 Days</h3>
                     <p>
                       A vertical Instagram ad for one of Moonline&apos;s Travel available packages. A quick tour through
@@ -274,7 +328,7 @@ export default function Page() {
                     </video>
                   </div>
                   <div className="project-body">
-                    <span className="tag">Unity game / 04</span>
+                    <span className="tag">Unity game / 05</span>
                     <h3>Can Smash</h3>
                     <p>
                       A mobile can-knockdown game prototype shown in Unity’s iPhone simulator. The clip moves from the
@@ -296,7 +350,7 @@ export default function Page() {
                     <div className="media-caption">Behind the scenes</div>
                   </div>
                   <div className="project-body">
-                    <span className="tag">Product scene / 05</span>
+                    <span className="tag">Product scene / 06</span>
                     <h3>Perfume Product Scene</h3>
                     <p>A product-focused perfume film built around controlled lighting, reflective surfaces, and a carefully composed hero reveal. The behind-the-scenes screen capture is included here as part of the same project, showing the scene setup and process.</p>
                   </div>
@@ -309,47 +363,9 @@ export default function Page() {
                     </video>
                   </div>
                   <div className="project-body">
-                    <span className="tag">Travel motion / 06</span>
+                    <span className="tag">Travel motion / 07</span>
                     <h3>Cappadocia</h3>
                     <p>A cinematic travel clip shaped around Cappadocia&apos;s landscape, movement, and atmosphere. The piece focuses on a concise visual rhythm that lets the destination carry the frame.</p>
-                  </div>
-                </article>
-                <article className="project" id="moonline-building">
-                  <div className="project-image project-image--building">
-                    {/* Add public/assets/moonline-building-film.mp4 when ready; successful loading replaces the placeholder. */}
-                    <video
-                      controls={buildingFilmReady}
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      poster="/assets/moonline-building-poster.webp"
-                      aria-label="Moonline architectural film"
-                      aria-hidden={!buildingFilmReady}
-                      onLoadedMetadata={() => setBuildingFilmReady(true)}
-                      onError={() => setBuildingFilmReady(false)}
-                    >
-                      <source src="/assets/moonline-building-film.mp4" type="video/mp4" />
-                      Your browser does not support video.{" "}
-                      <a href="/assets/moonline-building-film.mp4">Download the architectural film</a>.
-                    </video>
-                    {!buildingFilmReady && (
-                      <div className="project-placeholder">
-                        <img
-                          src="/assets/moonline-building-poster.webp"
-                          alt="Moonline building at night with illuminated signage and a landscaped streetscape"
-                        />
-                      </div>
-                    )}
-                  </div>
-                  <div className="project-body">
-                    <span className="tag">Architectural visualization / 07</span>
-                    <h3>Moonline Architectural Film</h3>
-                    <p>
-                      The Moonline building brought into a detailed urban setting in Blender. Daylight and nighttime
-                      lighting studies, landscaping, and an eight-second cinematic camera move explore the facade and
-                      its surrounding streetscape.
-                    </p>
                   </div>
                 </article>
               </div>
