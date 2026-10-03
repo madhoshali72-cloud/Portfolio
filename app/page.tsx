@@ -1,8 +1,10 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function Page() {
+  const [buildingFilmReady, setBuildingFilmReady] = useState(false)
+
   useEffect(() => {
     const revealItems = document.querySelectorAll(".project, .about-grid")
     const revealObserver = new IntersectionObserver(
@@ -93,6 +95,9 @@ export default function Page() {
     .site .project:hover { transform:translateY(-6px); border-color:#53647c; }
     .site .project-image { aspect-ratio:16/9; overflow:hidden; background:#0d1118; }
     .site .project-image video { width:100%; height:100%; display:block; object-fit:cover; }
+    .site .project-image--building { position:relative; }
+    .site .project-placeholder { position:absolute; inset:0; overflow:hidden; background:#0d1118; }
+    .site .project-placeholder img { width:100%; height:100%; display:block; object-fit:cover; }
     .site .project-media-stack { aspect-ratio:auto; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); }
     .site .project-media-stack video { min-width:0; aspect-ratio:16/9; background:#0d1118; }
     .site .media-caption { padding:8px 12px; color:var(--muted); background:#0d1118; font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
@@ -139,8 +144,8 @@ export default function Page() {
                 <span style={{ color: "var(--blue)" }}>visible.</span>
               </h1>
               <p className="hero-copy">
-                A selection of 3D, motion, and interactive work, from a reflective brand world and animated aircraft
-                reveal to mobile video and a Unity game prototype.
+                A selection of 3D, motion, and interactive work, from architectural scenes and reflective brand worlds
+                to animated aircraft reveals, mobile video, and a Unity game prototype.
               </p>
               <div className="hero-actions">
                 <a className="button" href="#work">
@@ -171,8 +176,8 @@ export default function Page() {
                   </h2>
                 </div>
                 <p className="section-note">
-                  Four projects across 3D identity, motion design, social video, and interactive games. Each film plays
-                  as you scroll to it.
+                  Seven projects across architectural visualization, 3D identity, motion design, social video, and
+                  interactive games. Available films play as you scroll to them.
                 </p>
               </div>
               <div className="work-grid">
@@ -307,6 +312,44 @@ export default function Page() {
                     <span className="tag">Travel motion / 06</span>
                     <h3>Cappadocia</h3>
                     <p>A cinematic travel clip shaped around Cappadocia&apos;s landscape, movement, and atmosphere. The piece focuses on a concise visual rhythm that lets the destination carry the frame.</p>
+                  </div>
+                </article>
+                <article className="project" id="moonline-building">
+                  <div className="project-image project-image--building">
+                    {/* Add public/assets/moonline-building-film.mp4 when ready; successful loading replaces the placeholder. */}
+                    <video
+                      controls={buildingFilmReady}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster="/assets/moonline-building-poster.webp"
+                      aria-label="Moonline architectural film"
+                      aria-hidden={!buildingFilmReady}
+                      onLoadedMetadata={() => setBuildingFilmReady(true)}
+                      onError={() => setBuildingFilmReady(false)}
+                    >
+                      <source src="/assets/moonline-building-film.mp4" type="video/mp4" />
+                      Your browser does not support video.{" "}
+                      <a href="/assets/moonline-building-film.mp4">Download the architectural film</a>.
+                    </video>
+                    {!buildingFilmReady && (
+                      <div className="project-placeholder">
+                        <img
+                          src="/assets/moonline-building-poster.webp"
+                          alt="Moonline building at night with illuminated signage and a landscaped streetscape"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="project-body">
+                    <span className="tag">Architectural visualization / 07</span>
+                    <h3>Moonline Architectural Film</h3>
+                    <p>
+                      The Moonline building brought into a detailed urban setting in Blender. Daylight and nighttime
+                      lighting studies, landscaping, and an eight-second cinematic camera move explore the facade and
+                      its surrounding streetscape.
+                    </p>
                   </div>
                 </article>
               </div>
