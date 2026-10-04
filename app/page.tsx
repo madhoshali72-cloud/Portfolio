@@ -187,7 +187,7 @@ export default function Page() {
                 <article className="project" id="moonline-building">
                   <div className="project-image project-media-building">
                     <div className="project-image--building">
-                      {/* Add public/assets/moonline-building-film.mp4 when ready; successful loading replaces the placeholder. */}
+                      {/* Show the architectural poster while the film loads. */}
                       <video
                         controls={buildingFilmReady}
                         muted
@@ -223,6 +223,22 @@ export default function Page() {
                         loading="lazy"
                       />
                       <figcaption className="media-caption">Architectural poster</figcaption>
+                    </figure>
+                    <div className="project-image--building">
+                      <video controls muted loop playsInline preload="metadata"
+                        poster="/assets/moonline-building-poster-2.jpg"
+                        aria-label="Moonline architectural film — second sequence">
+                        <source src="/assets/moonline-building-film-2.mp4" type="video/mp4" />
+                        Your browser does not support video.{" "}
+                        <a href="/assets/moonline-building-film-2.mp4">Download the second architectural film</a>.
+                      </video>
+                    </div>
+                    <div className="media-caption">Cinematic film / second sequence</div>
+                    <figure className="project-poster">
+                      <img src="/assets/moonline-building-poster-2.jpg"
+                        alt="Moonline building on a rainy night with illuminated signage and cars on the reflective street"
+                        width={1920} height={1080} loading="lazy" />
+                      <figcaption className="media-caption">Architectural poster / second sequence</figcaption>
                     </figure>
                   </div>
                   <div className="project-body">
